@@ -35,4 +35,11 @@
             app:popUpToInclusive="true" />
     </fragment>
 
+    <fragment
+        android:id="@+id/list_books_fragment"
+        android:name="com.dedicated407.favoriteliteratureclient.Presentation.Views.Books.BooksListFragment"
+        android:label="list_books_fragment"
+        tools:layout="@layout/list_fragment" >
+    </fragment>
+
 </navigation>
