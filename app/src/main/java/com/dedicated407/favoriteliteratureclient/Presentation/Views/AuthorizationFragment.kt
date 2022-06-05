@@ -69,7 +69,9 @@ class AuthorizationFragment : Fragment() {
 //            bottomNav.menu.findItem(R.id.add_book_fragment).isVisible = true
 //        }
 
-        
+        findNavController().navigate(
+            AuthorizationFragmentDirections.actionAuthToPersonalAccount()
+        )
     }
 
 }

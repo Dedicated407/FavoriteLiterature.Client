@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Presentation.Views.PersonalAccountFragment">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/bigMargin"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/PersonalAccountFragment_EditText_label_UserName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/myAcc_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/halfMargin"
+            android:ellipsize="end"
+            android:hint="@string/PersonalAccountFragment_EditText_hint_UserName"
+            android:text="Tsypin Ilya"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_logOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/PersonalAccountFragment_Button_text_LogOut"
+        android:layout_margin="@dimen/bigMargin"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/light_bluish_green" />
+
+</RelativeLayout>

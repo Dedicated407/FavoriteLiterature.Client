@@ -13,4 +13,11 @@
     <string name="NavBarMenu_title_ListBooks">Книги</string>
     <string name="NavBarMenu_title_Home">Личный кабинет</string>
     <string name="NavBarMenu_title_ListAuthors">Авторы</string>
+
+    <!-- PersonalAccountFragment -->
+    <string name="PersonalAccountFragment_EditText_label_UserName">Имя:</string>
+    <string name="PersonalAccountFragment_EditText_hint_UserName">Введите свое имя</string>
+    <string name="PersonalAccountFragment_Button_text_LogOut">Выйти из аккаунта</string>
+
+
 </resources>
