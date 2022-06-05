@@ -1,4 +1,4 @@
-package com.example.favoriteliteratureclient
+package com.dedicated407.favoriteliteratureclient
 
 import org.junit.Test
 

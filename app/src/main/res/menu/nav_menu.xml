@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/list_books_fragment"
+        android:icon="@drawable/ic_library_books"
+        android:enabled="true"
+        android:title="@string/NavBarMenu_title_ListBooks"/>
+
+    <item
+        android:id="@+id/personal_account_fragment"
+        android:icon="@drawable/ic_home"
+        android:enabled="true"
+        android:title="@string/NavBarMenu_title_Home"/>
+
+    <item
+        android:id="@+id/list_authors_fragment"
+        android:icon="@drawable/ic_find_author"
+        android:enabled="true"
+        android:title="@string/NavBarMenu_title_ListAuthors"/>
+
+</menu>

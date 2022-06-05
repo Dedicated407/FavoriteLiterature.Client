@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">FavoriteLiterature.Client</string>
+    <string name="app_name">Favorite Literature</string>
+    <string name="app_logo">Логотип создателя</string>
+
+    <!-- AuthorizationFragment -->
+    <string name="AuthorizationFragment_TextView_title_Welcome">Добро пожаловать!</string>
+    <string name="AuthorizationFragment_TextView_title_Info">Чтобы начать увлекательное путешествие вместе с нами, пожалуйста, авторизуйтесь или зарегистрируйтесь в системе.</string>
+    <string name="AuthorizationFragment_EditText_hint_Login">Введите вашу почту</string>
+    <string name="AuthorizationFragment_EditText_hint_Password">Введите ваш пароль</string>
+    <string name="AuthorizationFragment_Button_text_Auth">Войти в аккаунт</string>
+
+    <!-- NavBarMenu -->
+    <string name="NavBarMenu_title_ListBooks">Книги</string>
+    <string name="NavBarMenu_title_Home">Личный кабинет</string>
+    <string name="NavBarMenu_title_ListAuthors">Авторы</string>
 </resources>
