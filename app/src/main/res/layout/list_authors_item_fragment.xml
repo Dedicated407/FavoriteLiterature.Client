@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SearchView
+        android:id="@+id/findAuthor_SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@color/light_bluish_green"
+        android:theme="@style/Theme.FavoriteLiterature"
+        android:layout_margin="@dimen/normalMargin"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:queryHint="@string/AuthorFragment_SearchView_hint_SearchAuthor" />
+
+    <include
+        android:id="@+id/Authors_list"
+        layout="@layout/list_fragment"
+        android:layout_below="@+id/findAuthor_SearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normalMargin"/>
+
+</RelativeLayout>

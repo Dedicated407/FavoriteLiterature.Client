@@ -24,4 +24,6 @@
     <string name="BookInfoFragment_TextView_label_AuthorName">Автор:</string>
     <string name="BookInfoFragment_ImageView_image_ImageBook">Обложка книги</string>
 
+    <!-- AuthorFragment -->
+    <string name="AuthorFragment_SearchView_hint_SearchAuthor">Поиск автора</string>
 </resources>

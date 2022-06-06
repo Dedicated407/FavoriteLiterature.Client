@@ -14,7 +14,7 @@
         android:title="@string/NavBarMenu_title_Home"/>
 
     <item
-        android:id="@+id/list_authors_fragment"
+        android:id="@+id/list_authors_item_fragment"
         android:icon="@drawable/ic_find_author"
         android:enabled="true"
         android:title="@string/NavBarMenu_title_ListAuthors"/>
