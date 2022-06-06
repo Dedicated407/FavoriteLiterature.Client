@@ -1,5 +1,6 @@
 package com.dedicated407.favoriteliteratureclient.Presentation.ViewModels
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -22,5 +23,18 @@ class AuthorizationViewModel : ViewModel() {
         }
 
         return mResponse
+    }
+
+    fun checkAuthentication(context: Context): Boolean {
+        val key = context.getSharedPreferences(
+            "AuthKey",
+            Context.MODE_PRIVATE
+        ).all["email"]
+
+        if (key != null) {
+            return true
+        }
+
+        return false
     }
 }

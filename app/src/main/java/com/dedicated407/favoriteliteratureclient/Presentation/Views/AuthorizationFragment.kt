@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dedicated407.favoriteliteratureclient.MainActivity
-import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.JwtTokenResponseModel
 import com.dedicated407.favoriteliteratureclient.Presentation.ViewModels.AuthorizationViewModel
 import com.dedicated407.favoriteliteratureclient.databinding.AuthorizationFragmentBinding
 
@@ -43,7 +42,7 @@ class AuthorizationFragment : Fragment() {
                                 putString("email", email)
                             }
 
-                        bottomNavShow(it)
+                        bottomNavShow()
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
@@ -55,19 +54,19 @@ class AuthorizationFragment : Fragment() {
 
         mViewModel = ViewModelProvider(this)[AuthorizationViewModel::class.java]
 
+        if (mViewModel.checkAuthentication(requireContext())) {
+            bottomNavShow()
+        }
+
         return mBinding.root
     }
 
-    private fun bottomNavShow(responseModel: JwtTokenResponseModel) {
+    private fun bottomNavShow() {
         val bottomNav = (requireActivity() as MainActivity)
             .binding
             .bottomNavigation
 
         bottomNav.visibility = View.VISIBLE
-
-//        if (responseModel.role != Role.User) {
-//            bottomNav.menu.findItem(R.id.add_book_fragment).isVisible = true
-//        }
 
         findNavController().navigate(
             AuthorizationFragmentDirections.actionAuthToPersonalAccount()
