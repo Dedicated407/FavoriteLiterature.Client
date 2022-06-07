@@ -8,6 +8,17 @@
     <string name="AuthorizationFragment_EditText_hint_Login">Введите вашу почту</string>
     <string name="AuthorizationFragment_EditText_hint_Password">Введите ваш пароль</string>
     <string name="AuthorizationFragment_Button_text_Auth">Войти в аккаунт</string>
+    <string name="AuthorizationFragment_Button_text_Register">Зарегистрироваться</string>
+
+    <!-- RegistrationFragment -->
+    <string name="RegistrationFragment_TextView_title_Welcome">Добро пожаловать!</string>
+    <string name="RegistrationFragment_TextView_title_Info">Регистрация</string>
+    <string name="RegistrationFragment_EditText_hint_UserName">Придумайте никнейм</string>
+    <string name="RegistrationFragment_EditText_hint_Login">Введите вашу почту</string>
+    <string name="RegistrationFragment_EditText_hint_Password">Введите ваш пароль</string>
+    <string name="RegistrationFragment_EditText_hint_PasswordConfirmation">Продублируйте введенный выше пароль</string>
+    <string name="RegistrationFragment_Button_text_Register">Зарегистрироваться</string>
+    <string name="RegistrationFragment_Button_text_Back">Вернуться назад</string>
 
     <!-- NavBarMenu -->
     <string name="NavBarMenu_title_ListBooks">Книги</string>

@@ -48,8 +48,14 @@ class AuthorizationFragment : Fragment() {
                     }
                 }
             } else {
-                Toast.makeText(context, "One field is empty!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Данные введены не полностью!",Toast.LENGTH_SHORT).show()
             }
+        }
+
+        mBinding.btnRegistration.setOnClickListener {
+            findNavController().navigate(
+                AuthorizationFragmentDirections.actionAuthorizationToRegistration()
+            )
         }
 
         mViewModel = ViewModelProvider(this)[AuthorizationViewModel::class.java]
@@ -69,7 +75,7 @@ class AuthorizationFragment : Fragment() {
         bottomNav.visibility = View.VISIBLE
 
         findNavController().navigate(
-            AuthorizationFragmentDirections.actionAuthToPersonalAccount()
+            AuthorizationFragmentDirections.actionAuthorizationToPersonalAccount()
         )
     }
 
