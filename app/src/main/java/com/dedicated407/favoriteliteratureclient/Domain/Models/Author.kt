@@ -14,4 +14,8 @@ open class Author(
     open val phoneNumber: String?,
     open val address: String?,
     open val rating: Float?,
-)
+) {
+    override fun toString(): String {
+        return "$lastName $firstName $patronymic"
+    }
+}

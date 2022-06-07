@@ -1,10 +1,12 @@
 package com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server
 
+import com.dedicated407.favoriteliteratureclient.Domain.Models.Book
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Requests.JwtTokenRequestModel
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.AuthorsListResponseModel
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.BooksListResponseModel
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.JwtTokenResponseModel
 import retrofit2.http.*
+import java.util.*
 
 const val path = "api"
 const val users = "$path/users"
@@ -20,4 +22,7 @@ interface IWebService {
 
     @GET(authors)
     suspend fun getAllAuthors(): List<AuthorsListResponseModel>
+
+    @GET("$books/book")
+    suspend fun getBook(@Query("id") id: UUID): Book
 }

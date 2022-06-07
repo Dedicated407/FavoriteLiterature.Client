@@ -20,9 +20,12 @@
     <string name="PersonalAccountFragment_Button_text_LogOut">Выйти из аккаунта</string>
 
     <!-- BookInfoFragment -->
+    <string name="BookInfoFragment_ImageView_image_ImageBook">Обложка книги</string>
     <string name="BookInfoFragment_TextView_label_BookName">Название:</string>
     <string name="BookInfoFragment_TextView_label_AuthorName">Автор:</string>
-    <string name="BookInfoFragment_ImageView_image_ImageBook">Обложка книги</string>
+    <string name="BookInfoFragment_TextView_label_Rating">Оценка:</string>
+    <string name="BookInfoFragment_TextView_label_DescriptionBook">Описание:</string>
+    <string name="BookInfoFragment_Button_text_Share">Поделиться</string>
 
     <!-- AuthorFragment -->
     <string name="AuthorFragment_SearchView_hint_SearchAuthor">Поиск автора</string>
