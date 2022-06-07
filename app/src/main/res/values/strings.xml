@@ -15,8 +15,14 @@
     <string name="NavBarMenu_title_ListAuthors">Авторы</string>
 
     <!-- PersonalAccountFragment -->
-    <string name="PersonalAccountFragment_EditText_label_UserName">Имя:</string>
-    <string name="PersonalAccountFragment_EditText_hint_UserName">Введите свое имя</string>
+    <string name="PersonalAccountFragment_TextView_title_Header">Информация о вас</string>
+    <string name="PersonalAccountFragment_EditText_label_UserName">Никнейм:</string>
+    <string name="PersonalAccountFragment_TextView_label_Email">E-mail:</string>
+    <string name="PersonalAccountFragment_EditText_label_FirstName">Имя:</string>
+    <string name="PersonalAccountFragment_EditText_label_LastName">Фамилия:</string>
+    <string name="PersonalAccountFragment_EditText_label_Patronymic">Отчество:</string>
+    <string name="PersonalAccountFragment_TextView_label_Role">Роль:</string>
+    <string name="PersonalAccountFragment_EditText_hint">Введите необходимые данные</string>
     <string name="PersonalAccountFragment_Button_text_LogOut">Выйти из аккаунта</string>
 
     <!-- BookInfoFragment -->

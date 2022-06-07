@@ -2,6 +2,7 @@ package com.dedicated407.favoriteliteratureclient.Presentation.Repository
 
 import com.dedicated407.favoriteliteratureclient.DI.ServiceLocator
 import com.dedicated407.favoriteliteratureclient.Domain.Models.Book
+import com.dedicated407.favoriteliteratureclient.Domain.Models.User
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.IWebService
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Requests.JwtTokenRequestModel
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.AuthorsListResponseModel
@@ -22,4 +23,7 @@ class Repository {
 
     suspend fun getBook(bookId: UUID): Book =
         mApiFavLit.getBook(bookId)
+
+    suspend fun getProfile(): User =
+        mApiFavLit.getProfile()
 }

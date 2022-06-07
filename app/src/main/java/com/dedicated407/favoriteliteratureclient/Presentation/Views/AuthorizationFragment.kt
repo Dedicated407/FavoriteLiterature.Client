@@ -39,7 +39,7 @@ class AuthorizationFragment : Fragment() {
                     try {
                         requireContext()
                             .getSharedPreferences("AuthKey", Context.MODE_PRIVATE).edit {
-                                putString("email", email)
+                                putString("jwt", it.accessToken)
                             }
 
                         bottomNavShow()
