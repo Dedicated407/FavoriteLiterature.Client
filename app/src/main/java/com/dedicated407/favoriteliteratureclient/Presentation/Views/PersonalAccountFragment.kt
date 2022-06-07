@@ -7,9 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.dedicated407.favoriteliteratureclient.MainActivity
+import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Repository
 import com.dedicated407.favoriteliteratureclient.Presentation.ViewModels.PersonalAccountViewModel
 import com.dedicated407.favoriteliteratureclient.databinding.PersonalAccountFragmentBinding
 
@@ -32,7 +32,19 @@ class PersonalAccountFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        mViewModel = PersonalAccountViewModel(Repository())
         mBinding = PersonalAccountFragmentBinding.inflate(layoutInflater, container, false)
+
+        mViewModel.getUserInfo().observe(viewLifecycleOwner) {
+            it?.let { user ->
+                mBinding.personalAccountUserName.setText(user.userName)
+                mBinding.personalAccountEmail.text = user.email
+                mBinding.personalAccountFirstName.setText(user.firstName)
+                mBinding.personalAccountLastName.setText(user.lastName)
+                mBinding.personalAccountPatronymic.setText(user.patronymic)
+                mBinding.personalAccountRole.text = user.role
+            }
+        }
 
         mBinding.btnLogOut.setOnClickListener {
             val isSignOut = mViewModel.signOut(requireContext())
@@ -51,8 +63,6 @@ class PersonalAccountFragment : Fragment() {
                 Toast.makeText(context, "You can`t sign out", Toast.LENGTH_SHORT).show()
             }
         }
-
-        mViewModel = ViewModelProvider(this)[PersonalAccountViewModel::class.java]
 
         return mBinding.root
     }

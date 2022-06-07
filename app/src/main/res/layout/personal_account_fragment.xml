@@ -1,44 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".Presentation.Views.PersonalAccountFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout_userName"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/bigMargin"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/personal_account_header"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/PersonalAccountFragment_EditText_label_UserName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:layout_marginTop="@dimen/bigMargin"
+            android:layout_marginBottom="@dimen/normalMargin"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:text="@string/PersonalAccountFragment_TextView_title_Header"
+            />
 
-        <TextView
-            android:id="@+id/myAcc_userName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/linearLayout_email"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/halfMargin"
-            android:ellipsize="end"
-            android:hint="@string/PersonalAccountFragment_EditText_hint_UserName"
-            android:text="Tsypin Ilya"
-            android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@id/personal_account_header"
+            android:orientation="horizontal">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_TextView_label_Email"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-    <Button
-        android:id="@+id/btn_logOut"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/PersonalAccountFragment_Button_text_LogOut"
-        android:layout_margin="@dimen/bigMargin"
-        android:layout_alignParentBottom="true"
-        android:backgroundTint="@color/light_bluish_green" />
+            <TextView
+                android:id="@+id/personal_account_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
 
-</RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@id/linearLayout_email"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_TextView_label_Role"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+            <TextView
+                android:id="@+id/personal_account_role"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:paddingStart="4dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@+id/linearLayout_role"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_EditText_label_UserName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/personal_account_userName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:backgroundTint="@color/white"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:hint="@string/PersonalAccountFragment_EditText_hint"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_lastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@id/linearLayout_userName"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_EditText_label_LastName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/personal_account_lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:backgroundTint="@color/white"
+                android:ellipsize="end"
+                android:hint="@string/PersonalAccountFragment_EditText_hint"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_firstName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@id/linearLayout_lastName"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_EditText_label_FirstName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/personal_account_firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:backgroundTint="@color/white"
+                android:ellipsize="end"
+                android:hint="@string/PersonalAccountFragment_EditText_hint"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_patronymic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/halfMargin"
+            android:layout_below="@id/linearLayout_firstName"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:textAlignment="textEnd"
+                android:text="@string/PersonalAccountFragment_EditText_label_Patronymic"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/personal_account_patronymic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:backgroundTint="@color/white"
+                android:ellipsize="end"
+                android:hint="@string/PersonalAccountFragment_EditText_hint"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout_patronymic"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/bigMargin"
+            android:backgroundTint="@color/light_bluish_green"
+            android:text="@string/PersonalAccountFragment_Button_text_LogOut" />
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

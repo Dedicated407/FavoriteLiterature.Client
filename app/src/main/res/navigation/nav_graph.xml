@@ -10,8 +10,43 @@
         android:name="com.dedicated407.favoriteliteratureclient.Presentation.Views.AuthorizationFragment"
         android:label="authorization_fragment"
         tools:layout="@layout/authorization_fragment">
+
         <action
-            android:id="@+id/action_Auth_to_personalAccount"
+            android:id="@+id/action_authorization_to_personalAccount"
+            app:destination="@id/personal_account_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_authorization_to_registration"
+            app:destination="@id/registration_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration_fragment"
+        android:name="com.dedicated407.favoriteliteratureclient.Presentation.Views.RegistrationFragment"
+        android:label="registration_fragment"
+        tools:layout="@layout/registration_fragment">
+
+        <action
+            android:id="@+id/action_registration_to_authorization"
+            app:destination="@id/authorization_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_registration_to_personalAccount"
             app:destination="@id/personal_account_fragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"

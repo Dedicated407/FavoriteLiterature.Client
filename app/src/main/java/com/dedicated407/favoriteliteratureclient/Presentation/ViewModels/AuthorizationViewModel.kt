@@ -29,9 +29,10 @@ class AuthorizationViewModel : ViewModel() {
         val key = context.getSharedPreferences(
             "AuthKey",
             Context.MODE_PRIVATE
-        ).all["email"]
+        ).all["jwt"]
 
         if (key != null) {
+            ServiceLocator.getInstance().jwtToken = key.toString()
             return true
         }
 
