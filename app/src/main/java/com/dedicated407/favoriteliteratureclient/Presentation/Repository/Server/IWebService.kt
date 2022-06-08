@@ -17,10 +17,10 @@ const val authors = "$path/authors"
 
 interface IWebService {
     @POST("$users/register")
-    suspend fun authentication(@Body requestBody: RegisterRequestModel)
+    suspend fun register(@Body requestBody: RegisterRequestModel)
 
     @POST("$users/token")
-    suspend fun authentication(@Body requestBody: JwtTokenRequestModel): JwtTokenResponseModel
+    suspend fun authenticate(@Body requestBody: JwtTokenRequestModel): JwtTokenResponseModel
 
     @GET("$users/current")
     suspend fun getProfile(): User
