@@ -24,6 +24,7 @@ class RegistrationFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         mBinding = RegistrationFragmentBinding.inflate(layoutInflater, container, false)
+        mViewModel = ViewModelProvider(this)[RegistrationViewModel::class.java]
 
         mBinding.btnRegistration.setOnClickListener {
             val userName = mBinding.inputRegistrationUserName.text.toString()
@@ -36,27 +37,12 @@ class RegistrationFragment : Fragment() {
                 password.isNotEmpty() &&
                 passwordConfirmation.isNotEmpty()
             ) {
-
-                val response = mViewModel.registration(
+                mViewModel.register(
                     userName,
                     email,
                     password,
                     passwordConfirmation
                 )
-
-                response.observe(viewLifecycleOwner) {
-                    try {
-                        requireContext()
-                            .getSharedPreferences("AuthKey", Context.MODE_PRIVATE).edit {
-                                putString("jwt", it.accessToken)
-                            }
-
-                        bottomNavShow()
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }
-
             } else {
                 Toast.makeText(context, "Данные введены не полностью!", Toast.LENGTH_SHORT).show()
             }
@@ -68,7 +54,20 @@ class RegistrationFragment : Fragment() {
             )
         }
 
-        mViewModel = ViewModelProvider(this)[RegistrationViewModel::class.java]
+        mViewModel.response.observe(viewLifecycleOwner) {
+            it?.let { token ->
+                requireContext()
+                    .getSharedPreferences("AuthKey", Context.MODE_PRIVATE).edit {
+                        putString("jwt", token.accessToken)
+                    }
+
+                bottomNavShow()
+            }
+        }
+
+        mViewModel.lastError.observe(viewLifecycleOwner) {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        }
 
         return mBinding.root
     }

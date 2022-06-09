@@ -1,171 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Presentation.Views.Books.BookInfoFragment">
 
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/bookInfo_appbar"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@color/pastel_turquoise"
-        android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/bookInfo_collapsing"
+        <ImageView
+            android:id="@+id/book_image"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            android:fitsSystemWindows="true"
-            app:contentScrim="@color/pastel_turquoise"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/bookInfo_viewPager2"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin"/>
-
-            <ImageView
-                android:id="@+id/book_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/bigMargin"
-                app:backgroundTint="@color/light_bluish_green"
-                android:contentDescription="@string/BookInfoFragment_ImageView_image_ImageBook"
-                android:src="@drawable/ic_photo_not_found" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/bookInfo_nestedScroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="256dp"
+            android:background="@color/pastel_turquoise"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/BookInfoFragment_ImageView_image_ImageBook"
+            android:src="@drawable/ic_photo_not_found" />
 
         <LinearLayout
+            android:id="@+id/linearLayout_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="@dimen/normalMargin"
-            android:orientation="vertical">
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_image">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/BookInfoFragment_TextView_label_BookName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            <TextView
+                android:id="@+id/bookInfo_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/normalMargin"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_marginStart="@dimen/halfMargin"
+                android:lineSpacingExtra="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8dp"
-                    android:text="@string/BookInfoFragment_TextView_label_BookName"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-                <TextView
-                    android:id="@+id/bookInfo_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/halfMargin"
-                    android:lineSpacingExtra="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/normalMargin"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8dp"
-                    android:text="@string/BookInfoFragment_TextView_label_AuthorName"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-                <TextView
-                    android:id="@+id/bookInfo_author"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/halfMargin"
-                    android:lineSpacingExtra="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/normalMargin"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8dp"
-                    android:text="@string/BookInfoFragment_TextView_label_Rating"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-                <TextView
-                    android:id="@+id/bookInfo_rating"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/halfMargin"
-                    android:lineSpacingExtra="8dp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/normalMargin"
-                android:layout_gravity="center_vertical"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/label_bookInfo_description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="8dp"
-                    android:scrollbars="vertical"
-                    android:text="@string/BookInfoFragment_TextView_label_DescriptionBook"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-                <TextView
-                    android:id="@+id/bookInfo_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:lineSpacingExtra="8dp"
-                    android:maxLines="10"
-                    android:maxLength="255"
-                    android:scrollbars="vertical"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textSelectHandleLeft="@id/label_bookInfo_description"/>
-
-            </LinearLayout>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normalMargin"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_name">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/BookInfoFragment_TextView_label_AuthorName"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            <TextView
+                android:id="@+id/bookInfo_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:lineSpacingExtra="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_rating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normalMargin"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_author">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/BookInfoFragment_TextView_label_Rating"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            <TextView
+                android:id="@+id/bookInfo_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/halfMargin"
+                android:lineSpacingExtra="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout_description"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_margin="@dimen/normalMargin"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout_rating">
+
+            <TextView
+                android:id="@+id/label_bookInfo_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="8dp"
+                android:scrollbars="vertical"
+                android:text="@string/BookInfoFragment_TextView_label_DescriptionBook"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+            <TextView
+                android:id="@+id/bookInfo_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:lineSpacingExtra="8dp"
+                android:maxLines="10"
+                android:maxLength="255"
+                android:scrollbars="vertical"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textSelectHandleLeft="@id/label_bookInfo_description"/>
+
+        </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/bookInfo_share"
@@ -175,7 +150,8 @@
         android:layout_margin="@dimen/bigMargin"
         app:backgroundTint="@color/light_bluish_green"
         android:contentDescription="@string/BookInfoFragment_Button_text_Share"
-        android:src="@drawable/share" />
+        android:src="@drawable/share"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

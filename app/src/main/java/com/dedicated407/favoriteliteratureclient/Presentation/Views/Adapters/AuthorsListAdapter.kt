@@ -3,8 +3,10 @@ package com.dedicated407.favoriteliteratureclient.Presentation.Views.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.NonNull
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Responses.AuthorsListResponseModel
+import com.dedicated407.favoriteliteratureclient.Presentation.Views.Authors.AuthorsListFragmentDirections
 import com.dedicated407.favoriteliteratureclient.databinding.ListItemFragmentBinding
 import org.jetbrains.annotations.NotNull
 
@@ -32,14 +34,13 @@ class AuthorsListAdapter(private var authors: List<AuthorsListResponseModel>) :
         holder: AuthorViewHolder,
         position: Int,
     ) {
+        holder.binding.textViewName.text = authors[position].toString()
 
         holder.binding.root.setOnClickListener { v ->
-//            v.findNavController().navigate(
-//                AuthorsListFragmentDirections.actionListAuthorsToAuthorInfo(authors[position].id.toString())
-//            )
+            v.findNavController().navigate(
+                AuthorsListFragmentDirections.actionListAuthorsToAuthorInfo(authors[position].id.toString())
+            )
         }
-
-        holder.binding.textViewName.text = authors[position].toString()
     }
 
     override fun getItemCount(): Int {

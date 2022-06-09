@@ -1,5 +1,6 @@
 package com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server
 
+import com.dedicated407.favoriteliteratureclient.Domain.Models.Author
 import com.dedicated407.favoriteliteratureclient.Domain.Models.Book
 import com.dedicated407.favoriteliteratureclient.Domain.Models.User
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Requests.JwtTokenRequestModel
@@ -17,10 +18,10 @@ const val authors = "$path/authors"
 
 interface IWebService {
     @POST("$users/register")
-    suspend fun authentication(@Body requestBody: RegisterRequestModel)
+    suspend fun register(@Body requestBody: RegisterRequestModel)
 
     @POST("$users/token")
-    suspend fun authentication(@Body requestBody: JwtTokenRequestModel): JwtTokenResponseModel
+    suspend fun authenticate(@Body requestBody: JwtTokenRequestModel): JwtTokenResponseModel
 
     @GET("$users/current")
     suspend fun getProfile(): User
@@ -33,4 +34,7 @@ interface IWebService {
 
     @GET("$books/book")
     suspend fun getBook(@Query("id") id: UUID): Book
+
+    @GET("$authors/author")
+    suspend fun getAuthor(@Query("id") id: UUID): Author
 }

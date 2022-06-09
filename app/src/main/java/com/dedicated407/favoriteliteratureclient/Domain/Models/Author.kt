@@ -10,10 +10,11 @@ open class Author(
     open val lastName: String,
     open val patronymic: String,
     open val description: String?,
+    open val bookNames: List<String>?,
     open val birthday: Date?,
     open val phoneNumber: String?,
     open val address: String?,
-    open val rating: Float?,
+    open val rating: Byte,
 ) {
     override fun toString(): String {
         return "$lastName $firstName $patronymic"

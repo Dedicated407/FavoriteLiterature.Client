@@ -24,31 +24,25 @@ class AuthorizationFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         mBinding = AuthorizationFragmentBinding.inflate(layoutInflater, container, false)
+        mViewModel = ViewModelProvider(this)[AuthorizationViewModel::class.java]
+
+        if (mViewModel.checkAuthentication(requireContext())) {
+            bottomNavShow()
+        }
 
         mBinding.btnAuth.setOnClickListener {
             val email = mBinding.inputAuthLogin.text.toString()
             val password = mBinding.inputAuthPassword.text.toString()
+
             if (email.isNotEmpty() &&
                 password.isNotEmpty()
             ) {
-                val response = mViewModel.authentication(
+                mViewModel.authenticate(
                     email,
                     password
                 )
-                response.observe(viewLifecycleOwner) {
-                    try {
-                        requireContext()
-                            .getSharedPreferences("AuthKey", Context.MODE_PRIVATE).edit {
-                                putString("jwt", it.accessToken)
-                            }
-
-                        bottomNavShow()
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                    }
-                }
             } else {
-                Toast.makeText(context, "Данные введены не полностью!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Данные введены не полностью!", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -58,10 +52,19 @@ class AuthorizationFragment : Fragment() {
             )
         }
 
-        mViewModel = ViewModelProvider(this)[AuthorizationViewModel::class.java]
+        mViewModel.response.observe(viewLifecycleOwner) {
+            it?.let { token ->
+                requireContext()
+                    .getSharedPreferences("AuthKey", Context.MODE_PRIVATE).edit {
+                        putString("jwt", token.accessToken)
+                    }
 
-        if (mViewModel.checkAuthentication(requireContext())) {
-            bottomNavShow()
+                bottomNavShow()
+            }
+        }
+
+        mViewModel.lastError.observe(viewLifecycleOwner) {
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
 
         return mBinding.root
