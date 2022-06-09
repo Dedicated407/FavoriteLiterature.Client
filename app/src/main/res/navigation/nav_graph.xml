@@ -75,6 +75,14 @@
         android:name="com.dedicated407.favoriteliteratureclient.Presentation.Views.Authors.AuthorsListFragment"
         android:label="list_authors_item_fragment"
         tools:layout="@layout/list_authors_item_fragment">
+        <action
+            android:id="@+id/action_listAuthors_to_authorInfo"
+            app:destination="@id/author_info_fragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
@@ -103,6 +111,20 @@
         <deepLink
             android:id="@+id/book_link"
             app:uri="https://favlit.ru/book/{book_id}" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/author_info_fragment"
+        android:name="com.dedicated407.favoriteliteratureclient.Presentation.Views.Authors.AuthorInfoFragment"
+        android:label="author_info_fragment"
+        tools:layout="@layout/author_info_fragment">
+        <argument
+            android:name="author_id"
+            app:argType="string" />
+        <deepLink
+            android:id="@+id/author_link"
+            app:uri="https://favlit.ru/author/{author_id}" />
     </fragment>
 
 </navigation>

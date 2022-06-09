@@ -1,6 +1,7 @@
 package com.dedicated407.favoriteliteratureclient.Presentation.Repository
 
 import com.dedicated407.favoriteliteratureclient.DI.ServiceLocator
+import com.dedicated407.favoriteliteratureclient.Domain.Models.Author
 import com.dedicated407.favoriteliteratureclient.Domain.Models.Book
 import com.dedicated407.favoriteliteratureclient.Domain.Models.User
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.IWebService
@@ -42,6 +43,10 @@ class Repository {
 
     suspend fun getBook(bookId: UUID): Book = catchAll {
         mApiFavLit.getBook(bookId)
+    }
+
+    suspend fun getAuthor(authorId: UUID): Author = catchAll {
+        mApiFavLit.getAuthor(authorId)
     }
 
     suspend fun getProfile(): User = catchAll {

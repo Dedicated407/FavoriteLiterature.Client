@@ -46,4 +46,11 @@
 
     <!-- AuthorFragment -->
     <string name="AuthorFragment_SearchView_hint_SearchAuthor">Поиск автора</string>
+    <string name="AuthorFragment_ImageView_image_AuthorPhoto">Фотография автора</string>
+    <string name="AuthorFragment_TextView_label_Name">ФИО:</string>
+    <string name="AuthorFragment_TextView_label_NickName">Псевдоним:</string>
+    <string name="AuthorFragment_TextView_label_BooksList">Произведения:</string>
+    <string name="AuthorFragment_TextView_label_Rating">Оценка:</string>
+    <string name="AuthorFragment_TextView_label_Description">Описание:</string>
+    <string name="AuthorFragment_Button_text_Share">Поделиться</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server
 
+import com.dedicated407.favoriteliteratureclient.Domain.Models.Author
 import com.dedicated407.favoriteliteratureclient.Domain.Models.Book
 import com.dedicated407.favoriteliteratureclient.Domain.Models.User
 import com.dedicated407.favoriteliteratureclient.Presentation.Repository.Server.Models.Requests.JwtTokenRequestModel
@@ -33,4 +34,7 @@ interface IWebService {
 
     @GET("$books/book")
     suspend fun getBook(@Query("id") id: UUID): Book
+
+    @GET("$authors/author")
+    suspend fun getAuthor(@Query("id") id: UUID): Author
 }
